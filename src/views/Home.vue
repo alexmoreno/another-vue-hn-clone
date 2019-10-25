@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ItemList>
+      <ItemListItem v-for="item in state.items" :key="item.id" :item="item" />
+    </ItemList>
+    <ItemListPagination :page="page"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ItemList from "@/components/ItemList"
+import ItemListItem from "@/components/ItemListItem"
+import ItemListPagination from "@/components/ItemListPagination"
+import { reactive, onMounted } from "@vue/composition-api"
+import { store } from "@/store"
 
 export default {
-  name: "home",
   components: {
-    HelloWorld
+    ItemList,
+    ItemListItem,
+    ItemListPagination
+  },
+  setup(props, { root }) {
+    // get HN items
+    const items = useHNItems(root)
+    const page = useHNPagination(root)
+
+    return { ...items, page }
   }
-};
+}
+
+function useHNItems(root) {
+  const state = reactive({ items: [] })
+
+  onMounted(async () => {
+    state.items = await root.$store.dispatch("items/fetchItems")
+  })
+  return { state }
+}
+
+function useHNPagination(root) {
+  const page = +root.$route.params.page || 1
+  return page
+}
 </script>
