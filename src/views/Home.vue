@@ -22,18 +22,18 @@ export default {
   },
   setup(props, { root }) {
     // get HN items
-    const items = useHNItems(root)
     const page = useHNPagination(root)
+    const items = useHNItems(root, page)
 
     return { ...items, page }
   }
 }
 
-function useHNItems(root) {
+function useHNItems(root, page) {
   const state = reactive({ items: [] })
 
   onMounted(async () => {
-    state.items = await root.$store.dispatch("items/fetchItems")
+    state.items = await root.$store.dispatch("items/fetchItems", { page })
   })
   return { state }
 }

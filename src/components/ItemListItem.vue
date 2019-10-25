@@ -3,6 +3,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     class="item__item"
+    :id="item.id"
   >
     <ItemListItemLink :url="item.url" :title="item.title"/> <br>
     <ItemListItemComment :id="item.id" :descendants="item.descendants"/>
