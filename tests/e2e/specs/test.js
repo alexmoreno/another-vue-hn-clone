@@ -6,7 +6,7 @@ describe("Another HN Vue Clone", () => {
   it("loads", () => {
     cy.get(".home")
   })
-  it("loads 30 items", () => {
+  it("loads 20 items", () => {
     cy.get(".item__item").should("have.length", 20)
   })
 
