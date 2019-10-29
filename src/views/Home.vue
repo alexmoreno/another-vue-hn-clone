@@ -1,21 +1,25 @@
 <template>
-  <div class="home">
-    <ItemList>
-      <ItemListItem v-for="item in state.items" :key="item.id" :item="item" />
-    </ItemList>
-    <ItemListPagination :page="page"/>
-  </div>
+  <Main>
+    <div class="home">
+      <ItemListPagination :page="page"/>
+      <ItemList>
+        <ItemListItem v-for="item in state.items" :key="item.id" :item="item" />
+      </ItemList>
+    </div>
+  </Main>
 </template>
 
 <script>
 import ItemList from "@/components/ItemList"
 import ItemListItem from "@/components/ItemListItem"
 import ItemListPagination from "@/components/ItemListPagination"
+import Main from "@/layouts/Main"
 import { reactive, onMounted } from "@vue/composition-api"
 import { store } from "@/store"
 
 export default {
   components: {
+    Main,
     ItemList,
     ItemListItem,
     ItemListPagination
