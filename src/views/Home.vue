@@ -4,6 +4,7 @@
       <ItemListPagination :page="page" />
       <ItemList>
         <ItemListItem v-for="item in state.items" :key="item.id" :item="item" />
+        <Loading v-if="!state.items.length" />
       </ItemList>
     </div>
   </Main>
@@ -13,6 +14,7 @@
 import ItemList from "@/components/ItemList.vue"
 import ItemListItem from "@/components/ItemListItem.vue"
 import ItemListPagination from "@/components/ItemListPagination.vue"
+import Loading from "@/components/Loading.vue"
 import Main from "@/layouts/Main.vue"
 import { reactive, onMounted } from "@vue/composition-api"
 
@@ -21,7 +23,8 @@ export default {
     Main,
     ItemList,
     ItemListItem,
-    ItemListPagination
+    ItemListPagination,
+    Loading
   },
   setup(props: [], { root }: any): object {
     // get HN items
