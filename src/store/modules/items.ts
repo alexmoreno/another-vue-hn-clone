@@ -1,10 +1,10 @@
-import axios from "axios";
-
+import axios, { AxiosResponse } from "axios";
+import Item from "./items.d"
 const axiosInstance = axios.create({
   baseURL: "https://hacker-news.firebaseio.com/v0"
   /* other custom settings */
 });
-async function fetchTopItems() {
+async function fetchTopItems() : Promise<AxiosResponse> {
   return await axiosInstance.get(`/topstories.json?print=pretty`);
 }
 
@@ -16,7 +16,7 @@ export const actions = {
     let { data: topIDs } = await fetchTopItems();
 
     let top20IDs = topIDs.slice(0, 20);
-    return Promise.all(top20IDs.map(id => dispatch('fetchItem', { id })))
+    return Promise.all(top20IDs.map((id : number) : void => dispatch('fetchItem', { id })))
   },
 
   async fetchItem(store = {}, { id }: any) {

@@ -9,13 +9,12 @@
   </Main>
 </template>
 
-<script>
-import ItemList from "@/components/ItemList"
-import ItemListItem from "@/components/ItemListItem"
-import ItemListPagination from "@/components/ItemListPagination"
-import Main from "@/layouts/Main"
+<script lang="ts">
+import ItemList from "@/components/ItemList.vue"
+import ItemListItem from "@/components/ItemListItem.vue"
+import ItemListPagination from "@/components/ItemListPagination.vue"
+import Main from "@/layouts/Main.vue"
 import { reactive, onMounted } from "@vue/composition-api"
-import { store } from "@/store"
 
 export default {
   components: {
@@ -24,16 +23,16 @@ export default {
     ItemListItem,
     ItemListPagination
   },
-  setup(props, { root }) {
+  setup(props: [], { root }: any) : object {
     // get HN items
-    const page = useHNPagination(root)
-    const items = useHNItems(root, page)
+    const page: number = useHNPagination(root)
+    const items: any = useHNItems(root, page)
 
     return { ...items, page }
   }
 }
 
-function useHNItems(root, page) {
+function useHNItems(root: any , page: number) : object {
   const state = reactive({ items: [] })
 
   onMounted(async () => {
@@ -42,7 +41,7 @@ function useHNItems(root, page) {
   return { state }
 }
 
-function useHNPagination(root) {
+function useHNPagination(root: any) : number {
   const page = +root.$route.params.page || 1
   return page
 }

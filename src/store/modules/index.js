@@ -2,25 +2,24 @@
 // will mirror [sub-]directory hierarchy and modules are namespaced
 // as the camelCase equivalent of their file name.
 
-import camelCase from 'lodash/camelCase'
+import camelCase from "lodash/camelCase"
 
 const modulesCache = {}
 const storeData = { modules: {} }
-
 ;(function updateModules() {
   // Allow us to dynamically require all Vuex module files.
   // https://webpack.js.org/guides/dependency-management/#require-context
   const requireModule = require.context(
     // Search for files in the current directory.
-    '.',
+    ".",
     // Search for files in subdirectories.
     true,
     // Include any .js files that are not this file or a unit test.
-    /^((?!index|\.unit\.).)*\.ts$/
+    /^((?!index|\.unit\.).)*(?<!\.d)\.ts$/
   )
 
   // For every Vuex module...
-  requireModule.keys().forEach((fileName) => {
+  requireModule.keys().forEach(fileName => {
     const moduleDefinition =
       requireModule(fileName).default || requireModule(fileName)
 
@@ -34,9 +33,9 @@ const storeData = { modules: {} }
     // Get the module path as an array.
     const modulePath = fileName
       // Remove the "./" from the beginning.
-      .replace(/^\.\//, '')
+      .replace(/^\.\//, "")
       // Remove the file extension from the end.
-      .replace(/\.\w+$/, '')
+      .replace(/\.\w+$/, "")
       // Split nested modules into an array path.
       .split(/\//)
       // camelCase all module namespaces and names.
@@ -49,7 +48,7 @@ const storeData = { modules: {} }
     modules[modulePath.pop()] = {
       // Modules are namespaced by default.
       namespaced: true,
-      ...moduleDefinition,
+      ...moduleDefinition
     }
   })
 
@@ -60,7 +59,7 @@ const storeData = { modules: {} }
       // Update `storeData.modules` with the latest definitions.
       updateModules()
       // Trigger a hot update in the store.
-      require('../../store').default.hotUpdate({ modules: storeData.modules })
+      require("../../store").default.hotUpdate({ modules: storeData.modules })
     })
   }
 })()
@@ -73,7 +72,7 @@ function getNamespace(subtree, path) {
   subtree.modules[namespace] = {
     modules: {},
     namespaced: true,
-    ...subtree.modules[namespace],
+    ...subtree.modules[namespace]
   }
   return getNamespace(subtree.modules[namespace], path)
 }
