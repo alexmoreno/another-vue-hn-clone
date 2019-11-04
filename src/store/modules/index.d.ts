@@ -1,4 +1,4 @@
-declare module 'lodash/camelCase'
+declare module "lodash/camelCase"
 export interface Subtree {
   modules: {}
 }

@@ -1,7 +1,7 @@
 <template>
   <Main>
     <div class="home">
-      <ItemListPagination :page="page"/>
+      <ItemListPagination :page="page" />
       <ItemList>
         <ItemListItem v-for="item in state.items" :key="item.id" :item="item" />
       </ItemList>
@@ -23,7 +23,7 @@ export default {
     ItemListItem,
     ItemListPagination
   },
-  setup(props: [], { root }: any) : object {
+  setup(props: [], { root }: any): object {
     // get HN items
     const page: number = useHNPagination(root)
     const items: any = useHNItems(root, page)
@@ -32,7 +32,7 @@ export default {
   }
 }
 
-function useHNItems(root: any , page: number) : object {
+function useHNItems(root: any, page: number): object {
   const state = reactive({ items: [] })
 
   onMounted(async () => {
@@ -41,7 +41,7 @@ function useHNItems(root: any , page: number) : object {
   return { state }
 }
 
-function useHNPagination(root: any) : number {
+function useHNPagination(root: any): number {
   const page = +root.$route.params.page || 1
   return page
 }

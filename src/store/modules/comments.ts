@@ -10,18 +10,20 @@ export const state: RootState = {
 }
 
 export const mutations = {
-  PUSH_COMMENT: (state: RootState, payload: Comment) : void => {
+  PUSH_COMMENT: (state: RootState, payload: Comment): void => {
     state.items.push(payload)
   }
 }
 export const actions = {
   async fetchComments({ dispatch }: any, payload: any) {
     return Promise.all(
-      payload.commentsIds.map((id: number) : void => dispatch("fetchComment", { id }))
+      payload.commentsIds.map((id: number): void =>
+        dispatch("fetchComment", { id })
+      )
     )
   },
 
-  async fetchComment({ commit }: any , { id }: any) {
+  async fetchComment({ commit }: any, { id }: any) {
     let { data } = await axiosInstance.get(`/item/${id}.json`)
     commit("PUSH_COMMENT", data)
     return data
