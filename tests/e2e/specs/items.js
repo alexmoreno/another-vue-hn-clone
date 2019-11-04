@@ -1,5 +1,5 @@
 // https://docs.cypress.io/api/introduction/api.html
-describe("Another HN Vue Clone", () => {
+describe("Items", () => {
   beforeEach(() => {
     cy.visit("/")
   })

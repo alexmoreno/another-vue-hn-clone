@@ -1,6 +1,13 @@
 <template>
   <li class="comment__item">
-    <strong><p v-html="comment.by"></p></strong>
+    <router-link
+      :to="{ path: `/user/${comment.by}`}"
+      v-html="comment.by"
+      tag="a"
+      class="comment__created-by"
+    >
+
+    </router-link>
     <span v-html="comment.text" />
     <ItemViewComments
       v-if="comment.kids"
@@ -30,4 +37,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .comment__created-by {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+</style>
