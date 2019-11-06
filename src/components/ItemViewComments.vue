@@ -1,23 +1,28 @@
 <template>
-  <ul class="comment__list"
-    v-if="parentComments.length">
-    <ItemViewCommentsItem
-      v-for="comment in parentComments"
-      :key="comment.id"
-      class="comment"
-      :comment="comment"
-
-    />
-  </ul>
+  <div>
+    <ul class="comment__list"
+      v-if="parentComments.length">
+      <ItemViewCommentsItem
+        v-for="comment in parentComments"
+        :key="comment.id"
+        class="comment"
+        :comment="comment"
+      />
+    </ul>
+    <ul class="comment__list" v-else>
+      <Loading/>
+    </ul>
+  </div>
 </template>
 
 <script>
-
+import Loading from "@/components/Loading"
 import { mapState } from "vuex"
 export default {
   name: "ItemViewComments",
   components: {
-    ItemViewCommentsItem: () => import("@/components/ItemViewCommentsItem")
+    ItemViewCommentsItem: () => import("@/components/ItemViewCommentsItem"),
+    Loading
   },
   props: {
     commentIds: {
