@@ -1,3 +1,3 @@
 <template functional>
-  <span>Loading...</span>
+  <p>Loading...</p>
 </template>
