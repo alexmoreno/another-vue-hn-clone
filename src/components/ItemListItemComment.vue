@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ path: `/item/${id}` }">
+  <router-link class="item__item-comments" :to="{ path: `/item/${id}` }">
     {{descendants}} comments
   </router-link>
 </template>

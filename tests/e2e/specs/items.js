@@ -20,7 +20,7 @@ describe("Items", () => {
     cy.get(".navigation a.previous").should("not.exist")
   })
   it("should load comments and get back", () => {
-    cy.get(".item__item:first a:nth-of-type(2)").click()
+    cy.get(".item__item:first .item__item-comments").click()
     cy.get(".comment__item").should("have.length.gte", 1)
     cy.get(".header__news-link").click()
     cy.url().should("contain", "/home")
