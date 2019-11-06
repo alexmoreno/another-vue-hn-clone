@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td>About: </td>
-      <td v-html="props.user.about"></td>
+      <td v-html="props.user.about || 'empty'"></td>
     </tr>
   </table>
 </template>
