@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import Loading from "@/components/Loading"
+import Loading from "@/components/Misc/Loading"
 import { mapState } from "vuex"
 export default {
   name: "ItemViewComments",
   components: {
-    ItemViewCommentsItem: () => import("@/components/ItemViewCommentsItem"),
+    ItemViewCommentsItem: () => import("@/components/ItemView/ItemViewCommentsItem"),
     Loading
   },
   props: {

@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts">
-import Loading from "@/components/Loading.vue"
+import Loading from "@/components/Misc/Loading.vue"
 import Main from "@/layouts/Main.vue"
-import UserInfo from "@/components/UserInfo.vue"
+import UserInfo from "@/components/User/UserInfo.vue"
 import { reactive, onMounted } from "@vue/composition-api"
 import { isEmpty } from "@/utils"
 export default {

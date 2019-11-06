@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import ItemList from "@/components/ItemList"
-import ItemListItem from "@/components/ItemListItem"
-import ItemListPagination from "@/components/ItemListPagination"
-import ItemViewComments from "@/components/ItemViewComments"
+import ItemList from "@/components/ItemList/ItemList"
+import ItemListItem from "@/components/ItemList/ItemListItem"
+import ItemListPagination from "@/components/ItemList/ItemListPagination"
+import ItemViewComments from "@/components/ItemView/ItemViewComments"
 import Main from "@/layouts/Main"
 import { mapState } from "vuex"
 export default {

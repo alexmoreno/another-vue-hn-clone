@@ -25,7 +25,7 @@ import { mapState } from "vuex"
 export default {
   name: "ItemViewCommentsItem",
   components: {
-    ItemViewComments: () => import("@/components/ItemViewComments")
+    ItemViewComments: () => import("@/components/ItemView/ItemViewComments")
   },
   computed: {
     ...mapState("comments", {

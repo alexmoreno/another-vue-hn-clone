@@ -14,7 +14,7 @@
 </template>
 <script>
 import * as timeago from "timeago.js"
-import ItemListItemComment from "@/components/ItemListItemComment"
+import ItemListItemComment from "@/components/ItemList/ItemListItemComment"
 export default {
   components: {
     ItemListItemComment

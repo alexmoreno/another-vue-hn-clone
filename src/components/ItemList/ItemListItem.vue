@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import ItemListItemLink from "@/components/ItemListItemLink"
-import ItemListItemMeta from "@/components/ItemListItemMeta"
+import ItemListItemLink from "@/components/ItemList/ItemListItemLink"
+import ItemListItemMeta from "@/components/ItemList/ItemListItemMeta"
 export default {
   components: {
     ItemListItemLink,

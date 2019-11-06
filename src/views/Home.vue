@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-import ItemList from "@/components/ItemList.vue"
-import ItemListItem from "@/components/ItemListItem.vue"
-import ItemListPagination from "@/components/ItemListPagination.vue"
-import Loading from "@/components/Loading.vue"
+import ItemList from "@/components/ItemList/ItemList.vue"
+import ItemListItem from "@/components/ItemList/ItemListItem.vue"
+import ItemListPagination from "@/components/ItemList/ItemListPagination.vue"
+import Loading from "@/components/Misc/Loading.vue"
 import Main from "@/layouts/Main.vue"
 import { reactive, onMounted } from "@vue/composition-api"
 

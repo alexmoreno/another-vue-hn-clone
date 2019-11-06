@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
 })
 
 function itemIsAlreadyOnCache(state: any, id: number): boolean {
-  return !state.items.map((item: Comment): number => item.id).includes(id)
+  return state.items.map((item: Comment): number => item.id).includes(id)
 }
 
 export const state: RootState = {
