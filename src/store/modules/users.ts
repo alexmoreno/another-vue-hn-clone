@@ -12,7 +12,9 @@ async function fetchTopItems(): Promise<AxiosResponse> {
 // export const mutations = {};
 export const actions = {
   async fetchUser({ dispatch }: any, { username }: any): Promise<{}> {
-    let { data } = await axiosInstance.get(`/user/${username}.json?print=pretty`)
+    let { data } = await axiosInstance.get(
+      `/user/${username}.json?print=pretty`
+    )
     return data
-  },
+  }
 }

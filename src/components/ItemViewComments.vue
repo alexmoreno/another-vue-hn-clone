@@ -1,7 +1,6 @@
 <template>
   <div>
-    <ul class="comment__list"
-      v-if="parentComments.length">
+    <ul class="comment__list" v-if="parentComments.length">
       <ItemViewCommentsItem
         v-for="comment in parentComments"
         :key="comment.id"
@@ -10,7 +9,7 @@
       />
     </ul>
     <ul class="comment__list" v-else>
-      <Loading/>
+      <Loading />
     </ul>
   </div>
 </template>

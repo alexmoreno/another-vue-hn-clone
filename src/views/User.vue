@@ -28,10 +28,9 @@ export default {
   methods: {
     isEmpty
   }
-
 }
 
-function useHNUser(root: any): void {
+function useHNUser(root: any): object {
   const state = reactive({ user: {} })
   const username = root.$route.params.username
   onMounted(async () => {
