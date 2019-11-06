@@ -5,6 +5,10 @@ const axiosInstance = axios.create({
   baseURL: "https://hacker-news.firebaseio.com/v0" as string
 })
 
+function itemIsAlreadyOnCache(state: any, id: number): boolean {
+  return !state.items.map((item: Comment): number => item.id).includes(id)
+}
+
 export const state: RootState = {
   items: [] as Comment[]
 }
@@ -23,9 +27,11 @@ export const actions = {
     )
   },
 
-  async fetchComment({ commit }: any, { id }: any) {
-    let { data } = await axiosInstance.get(`/item/${id}.json`)
-    commit("PUSH_COMMENT", data)
-    return data
+  async fetchComment({ commit, state }: any, { id }: any) {
+    if(!itemIsAlreadyOnCache(state, id)) {
+      let { data } = await axiosInstance.get(`/item/${id}.json`)
+      commit("PUSH_COMMENT", data)
+      return data
+    }
   }
 }
