@@ -20,9 +20,7 @@ export default {
     Main
   },
   setup(props: [], { root }: any): object {
-    // get HN items
     const user: object = useHNUser(root)
-
     return { ...user }
   },
   methods: {

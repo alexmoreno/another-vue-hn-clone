@@ -34,4 +34,17 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="scss">
+  .navigation {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-left: -16px;
+    margin-right: -16px;
+    a {
+      text-decoration: none;
+    }
+  }
+
+</style>

@@ -22,6 +22,7 @@ export default {
 </script>
 <style lang="scss">
 .item__item {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+
 }
 </style>

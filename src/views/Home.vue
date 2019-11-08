@@ -27,7 +27,6 @@ export default {
     Loading
   },
   setup(props: [], { root }: any): object {
-    // get HN items
     const page: number = useHNPagination(root)
     const items: any = useHNItems(root, page)
 

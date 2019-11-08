@@ -44,7 +44,8 @@ export default {
   margin-top: 10px;
 }
 .comment__list {
-  margin-left: 10px;
+  margin-left: 25px;
   list-style: none;
+  padding-left: 0;
 }
 </style>
